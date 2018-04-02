@@ -1,11 +1,11 @@
 =begin
 module ExceptionHandler
-	
+
 	extend ActiveSupport::Concern
 
-	included do 
+	included do
 
-		rescue_from ActiveRecord::RecordNotFound do |e| 
+		rescue_from ActiveRecord::RecordNotFound do |e|
 			json_response({ message: e.message }, :not_found)
 		end
 
@@ -33,7 +33,7 @@ module ExceptionHandler
 		rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
 
 		rescue_from ActiveRecord::RecordNotFound do |e|
-		json_response({ message: e.message }, :not_found)
+			json_response({ message: e.message }, :not_found)
 		end
 	end
 
